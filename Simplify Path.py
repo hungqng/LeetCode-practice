@@ -29,3 +29,16 @@ class Solution:
                 cur += c
                 
         return "/" + "/".join(stack)
+    
+        # solution 2
+        stack = []
+        elements = path.split('/')
+        for element in elements:
+            if element == '' or element == '.':
+                continue
+            elif element == '..':
+                if stack:
+                    stack.pop()
+            else:
+                stack.append(element)
+        return '/' + '/'.join(stack)
